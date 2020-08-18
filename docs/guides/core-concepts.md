@@ -1,33 +1,46 @@
 <!--
-title: Serverless Framework - AWS Lambda Guide - Introduction
-menuText: Intro
+title: Serverless Framework - Core Concepts
+menuText: Core Concepts
 menuOrder: 1
-description: An introduction to using AWS and AWS Lambda with the Serverless Framework.
 layout: Doc
 -->
 
 <!-- DOCS-SITE-LINK:START automatically generated  -->
 
-### [Read this on the main serverless docs site](https://www.serverless.com/framework/docs/providers/aws/guide/intro)
+### [Read this on the main serverless docs site](https://www.serverless.com/framework/docs/guides/core-concepts/)
 
 <!-- DOCS-SITE-LINK:END -->
 
-# AWS - Introduction
+# Core Concepts
 
-The Serverless Framework helps you develop and deploy your [AWS Lambda](https://serverless.com/aws-lambda/) functions, along with the AWS infrastructure resources they require. It's a CLI that offers structure, automation and best practices out-of-the-box, allowing you to focus on building sophisticated, event-driven, serverless architectures, comprised of [Functions](#functions) and [Events](#events).
+The Serverless Framework helps you develop and deploy your Azure, AWS, GCP, etc. Functions, along with the infrastructure resources they require. It's a CLI that offers structure, automation and best practices out-of-the-box, allowing you to focus on building sophisticated, event-driven, serverless architectures, comprised of [Functions](#functions) and [Events](#events).
 
 The Serverless Framework is different from other application frameworks because:
 
 - It manages your code as well as your infrastructure
 - It supports multiple languages (Node.js, Python, Java, and more)
 
-## Core Concepts
+## Provider
 
-Here are the Framework's main concepts and how they pertain to AWS and Lambda...
+A Provider tells the serverless framework what cloud provider you are using.
 
-### Functions
+```
+provider:
+  name: cloudflare
+  stage: prod
+  environment:
+     SOME_KEY: some_info
+```
 
-A Function is an AWS Lambda function. It's an independent unit of deployment, like a microservice. It's merely code, deployed in the cloud, that is most often written to perform a single job such as:
+`stage`: meant to be the stage of your project (`dev`, `prod`..). If unset defaults to `dev`.
+
+`environment`: variables that can be referenced in your functions. These will get added to every function. If a [`function`](#function) defines the same variable, the function definition will overwrite the provider block definition.
+
+`name`: the name of the cloud provider (e.g. `cloudflare`, `aws`, `azure`).
+
+## Functions
+
+A Function is any compute function supported by a cloud service provider (e.g. AWS Lambda, Alibaba Cloud Function Compute Engine, Google Cloud Function). It's an independent unit of deployment, like a microservice. It's merely code, deployed in the cloud, that is most often written to perform a single job such as:
 
 - _Saving a user to the database_
 - _Processing a file in a database_
@@ -35,20 +48,20 @@ A Function is an AWS Lambda function. It's an independent unit of deployment, li
 
 You can perform multiple jobs in your code, but we don't recommend doing that without good reason. Separation of concerns is best and the Framework is designed to help you easily develop and deploy Functions, as well as manage lots of them.
 
-### Events
+## Events
 
 Anything that triggers an AWS Lambda Function to execute is regarded by the Framework as an **Event**. Events are infrastructure events on AWS such as:
 
-- _An AWS API Gateway HTTP endpoint request (e.g., for a REST API)_
+- _An HTTP Trigger (e.g., for a REST API)_
 - _An AWS S3 bucket upload (e.g., for an image)_
 - _A CloudWatch timer (e.g., run every 5 minutes)_
 - _An AWS SNS topic (e.g., a message)_
 - _A CloudWatch Alert (e.g., something happened)_
 - _And more..._
 
-When you define an event for your AWS Lambda functions in the Serverless Framework, the Framework will automatically create any infrastructure necessary for that event (e.g., an API Gateway endpoint) and configure your AWS Lambda Functions to listen to it.
+When you define an event for your functions in the Serverless Framework, the Framework will automatically create any infrastructure necessary for that event (e.g., an API Gateway endpoint) and configure your functions to listen to it.
 
-### Resources
+## Resources
 
 **Resources** are AWS infrastructure components which your Functions use such as:
 
@@ -59,7 +72,7 @@ When you define an event for your AWS Lambda functions in the Serverless Framewo
 
 The Serverless Framework not only deploys your Functions and the Events that trigger them, but it also deploys the AWS infrastructure components your Functions depend upon.
 
-### Services
+## Services
 
 A **Service** is the Framework's unit of organization. You can think of it as a project file, though you can have multiple services for a single application. It's where you define your Functions, the Events that trigger them, and the Resources your Functions use. A service can be described in YAML or JSON format, using respectively a file named `serverless.yml` or `serverless.json` at the root directory of the project. It looks like this:
 
@@ -167,7 +180,7 @@ When you deploy with the Framework by running `serverless deploy`, everything in
 
 > For the sake of simplicity, most code snippet detailed in this documentation only refer to the `serverless.yml` YAML service file format. However, all functionalities work as well in the other available service file formats.
 
-### Plugins
+## Plugins
 
 You can overwrite or extend the functionality of the Framework using **Plugins**. Every `serverless.yml` can contain a `plugins:` property, which features multiple plugins.
 
