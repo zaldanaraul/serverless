@@ -1,7 +1,7 @@
 <!--
-title: Serverless Variables
+title: Serverless Framework - Variables
 menuText: Variables
-menuOrder: 11
+menuOrder: 4
 description: How to use Serverless Variables to insert dynamic configuration info into your serverless.yml
 layout: Doc
 -->
@@ -16,7 +16,14 @@ layout: Doc
 
 Variables allow users to dynamically replace config values in `serverless.yml` config.
 
-They are especially useful when providing secrets for your service to use and when you are working with multiple stages.
+They are especially useful when providing secrets for your service to use and when you are working with multiple stages. With Serverless Variables, you'll be able to do the following:
+
+- Reference & load variables from environment variables
+- Reference & load variables from CLI options
+- Recursively reference properties of any type from the same `serverless.yml` file
+- Recursively reference properties of any type from other YAML / JSON files
+- Recursively nest variable references within each other for ultimate flexibility
+- Combine multiple variable references to overwrite each other
 
 ## Syntax
 
@@ -48,8 +55,6 @@ You can define your own variable syntax (regex) if it conflicts with CloudFormat
 - [Pseudo Parameters Reference](#pseudo-parameters-reference)
 - [Read String Variable Values as Boolean Values](#read-string-variable-values-as-boolean-values)
 
-## Casting string variables to boolean values
-
 ## Recursively reference properties
 
 You can also **Recursively reference properties** with the variable system. This means you can combine multiple values and variable sources for a lot of flexibility.
@@ -77,7 +82,7 @@ Likewise, if `sls deploy --stage prod` is run the `config.prod.json` file would 
 
 If no `--stage` flag is provided, the second parameter defined in `${opt:stage, 'dev'}` a.k.a `dev` will be used and result in `${file(./config.dev.json):CREDS}`.
 
-## Reference Properties In serverless.yml
+## Reference Properties in serverless.yml
 
 To self-reference properties in `serverless.yml`, use the `${self:someProperty}` syntax in your `serverless.yml`. `someProperty` can contain the empty string for a top-level self-reference or a dotted attribute reference to any depth of attribute, so you can go as shallow or deep in the object tree as you want.
 
