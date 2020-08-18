@@ -1,13 +1,13 @@
 <!--
-title: Serverless Dashboard - Outputs
+title: Serverless Framework - Outputs
 menuText: Outputs
-menuOrder: 3
+menuOrder: 2
 layout: Doc
 -->
 
 <!-- DOCS-SITE-LINK:START automatically generated  -->
 
-### [Read this on the main serverless docs site](https://www.serverless.com/framework/docs/dashboard/output-variables/)
+### [Read this on the main serverless docs site](https://www.serverless.com/framework/docs/guides/outputs/)
 
 <!-- DOCS-SITE-LINK:END -->
 
