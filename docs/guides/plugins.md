@@ -1,7 +1,7 @@
 <!--
 title: Serverless Framework - Plugins
 menuText: Plugins
-menuOrder: 5
+menuOrder: 6
 description: How to install and create Plugins to extend or overwrite the functionality of the Serverless Framework
 layout: Doc
 -->

@@ -1,7 +1,7 @@
 <!--
 title: Serverless Framework - Outputs
 menuText: Outputs
-menuOrder: 2
+menuOrder: 3
 layout: Doc
 -->
 
