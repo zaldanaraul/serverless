@@ -1,7 +1,7 @@
 <!--
 title: Serverless Framework - Workflow
 menuText: Workflow
-menuOrder: 8
+menuOrder: 10
 description: A guide and cheatsheet containing CLI commands and workflow recommendations.
 layout: Doc
 -->
