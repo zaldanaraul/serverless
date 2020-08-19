@@ -1,7 +1,7 @@
 <!--
 title: Serverless Framework - Parameters
 menuText: Parameters
-menuOrder: 3
+menuOrder: 4
 layout: Doc
 -->
 

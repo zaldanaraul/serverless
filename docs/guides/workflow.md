@@ -1,14 +1,14 @@
 <!--
-title: Serverless Framework Guide - AWS Lambda - Workflow
+title: Serverless Framework - Workflow
 menuText: Workflow
-menuOrder: 15
+menuOrder: 7
 description: A guide and cheatsheet containing CLI commands and workflow recommendations.
 layout: Doc
 -->
 
 <!-- DOCS-SITE-LINK:START automatically generated  -->
 
-### [Read this on the main serverless docs site](https://www.serverless.com/framework/docs/providers/aws/guide/workflow)
+### [Read this on the main serverless docs site](https://www.serverless.com/framework/docs/guide/workflow)
 
 <!-- DOCS-SITE-LINK:END -->
 
