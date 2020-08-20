@@ -50,7 +50,7 @@ You can perform multiple jobs in your code, but we don't recommend doing that wi
 
 ## Events
 
-Anything that triggers an AWS Lambda Function to execute is regarded by the Framework as an **Event**. Events are infrastructure events on AWS such as:
+Anything that triggers a Function to execute is regarded by the Framework as an **Event**. Events are infrastructure events on AWS such as:
 
 - _An HTTP Trigger (e.g., for a REST API)_
 - _An AWS S3 bucket upload (e.g., for an image)_
